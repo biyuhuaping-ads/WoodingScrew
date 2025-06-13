@@ -1,5 +1,6 @@
 import UIKit
 import SwiftUI
+import AppsFlyerLib
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -7,7 +8,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
-
         let window = UIWindow(windowScene: windowScene)
         self.window = window
 
@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let url = URLContexts.first?.url else { return }
         handleIncomingURL(url)
     }
-
+    
     private func handleIncomingURL(_ url: URL) {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let queryItems = components.queryItems else { return }
