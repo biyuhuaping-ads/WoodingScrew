@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ALSdk.shared().initialize(with: initConfig) { sdkConfig in
             print("AppLovin SDK initialized.")
             // 预加载广告等操作
+            let _ = InterstitialAdVC.shared
         }
         return true
     }
